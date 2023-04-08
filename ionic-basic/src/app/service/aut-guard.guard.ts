@@ -7,6 +7,7 @@ import { AutService } from '../service/aut.service';
   providedIn: 'root'
 })
 export class AutGuardGuard implements CanActivate {
+  
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -24,6 +25,8 @@ export class AutGuardGuard implements CanActivate {
   constructor(
     private authService: AutService,
     private router: Router
-  ) { }
+  ){ 
+    
+  }
   
 }

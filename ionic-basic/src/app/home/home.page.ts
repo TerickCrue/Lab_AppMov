@@ -19,14 +19,16 @@ export class HomePage implements OnInit {
     private menuService: MenuServiceService
 
   ) {
-      onAuthStateChanged(this.authService.getStateAuth(), user => {
+      onAuthStateChanged(this.authService.getStateAuth(), user=>{
         if(user != null && user != undefined){
           this.isLoged = true;
         }
       });
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    
+  }
 
   onLogout(){
     signOut(this.authService.getStateAuth()).then(response => {

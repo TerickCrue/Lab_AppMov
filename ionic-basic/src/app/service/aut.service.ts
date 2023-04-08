@@ -35,9 +35,10 @@ export class AutService {
   onLogin(user: User): Promise<any>{
       return signInWithEmailAndPassword(this.auth, user.email, user.password);
   }
+  
    //register
    onRegister(user: User): Promise<any>{
       return  createUserWithEmailAndPassword(this.auth, user.email, user.password);
   }
-  
+
 }
