@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ModalErrorComponent } from '../componentes/modal-error/modal-error.component'
-import { ModalController } from '@ionic/angular';
 import { AutService} from '../service/aut.service';
+import { Router } from '@angular/router';
 import { MenuServiceService } from '../service/menu-service.service';
 import { User } from '../interface/user';
 import {FormGroup, FormBuilder, Validators, FormControl, AbstractControl} from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { ModalErrorComponent } from '../componentes/modal-error/modal-error.component'
 
 
 @Component({
@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
-    this.buildForm;
+    this.buildForm();
   }
 
   async onLogin(){

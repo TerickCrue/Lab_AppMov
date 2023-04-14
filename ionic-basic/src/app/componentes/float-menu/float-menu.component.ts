@@ -51,26 +51,26 @@ export class FloatMenuComponent implements OnInit, OnDestroy {
    }
 
   ngOnDestroy(): void {
-    if(this.subscription != null || this.subscription!= undefined){
+    if(this.subscription != null || this.subscription != undefined){
       this.subscription.unsubscribe();
     }
   }
   onMenuOpen(){
      onAuthStateChanged(this.autService.getStateAuth(), user=>{
-       if(user!=null && user != undefined){
+       if(user != null && user != undefined){
          this.datosMenu =[
-           {nombre: 'Alumnos',enlace:'/alumnos',
-     icono:'school-outline'},
-       {nombre: 'Receteas',enlace:'/receta',
-       icono:'restaurant-outline'},
-       {nombre: 'Presupuesto',enlace:'/presupuesto',
-       icono:'cash-outline'},
-       {nombre: 'inicio',enlace:'/inicio',
-       icono:'navigate-outline'},
-       {nombre: 'Tabs',enlace:'/tabs',
-       icono:'folder-outline'},
-           {nombre: 'logout',enlace:'/home',
-           icono:'log-out-outline'}
+          {nombre: 'Alumnos',enlace:'/alumnos',
+            icono:'school-outline'},
+          {nombre: 'Recetas',enlace:'/receta',
+            icono:'restaurant-outline'},
+          {nombre: 'Presupuesto',enlace:'/presupuesto',
+            icono:'cash-outline'},
+          {nombre: 'Inicio',enlace:'/inicio',
+            icono:'navigate-outline'},
+          {nombre: 'Tabs',enlace:'/tabs',
+            icono:'folder-outline'},
+          {nombre: 'Logout',enlace:'/home',
+            icono:'log-out-outline'}
          ];
 
        }
