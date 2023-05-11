@@ -34,7 +34,7 @@ export class InicioPage implements OnInit {
     this.envioReceptor.sendObjectSource(this.user);
     this.envioReceptor.sendListSource(this.list);
 
-    this.router.navigate(['/receptor']);
+    this.router.navigate(['/main/receptor']);
   }
   
 

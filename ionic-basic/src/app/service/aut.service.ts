@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { initializeApp } from "firebase/app"
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { Lugar } from '../interface/lugar';
 import { getDatabase } from "firebase/database";
 import { User } from '../interface/user';
@@ -63,6 +63,7 @@ export class AutService {
         let data: any = doc.data();
           let lugar: Lugar = new Lugar();
           lugar.nombre = data.nombre;
+          lugar.id = doc.id;
           console.log(doc.id);
           destinos.push(lugar);
       });
@@ -72,4 +73,17 @@ export class AutService {
     });
   }
    
+  updateLugares(id: any, lugar: any): Promise<any>{
+    const docRef = doc(this.db, 'lugar', id);
+    const lugarAux = {nombre: lugar.nombre,
+      ubicacion:{latitud:'', longitud:''}
+    };
+
+    return setDoc(docRef, lugarAux);
+  }
+
+  deleteLugar(id: any): Promise<any>{
+    const docRef = doc(this.db, 'lugar', id);
+    return deleteDoc(docRef);
+  }
 }
