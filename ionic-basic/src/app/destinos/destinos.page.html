@@ -3,6 +3,7 @@
       <ion-title>Destinos</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content padding>
     <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
         <ion-item>
@@ -47,8 +48,9 @@
             </ion-col>
             <ion-col>
                 <ion-text>
-                    En construccion
-                    <!--{{lugar.ubicacion}}-->
+                    latitud: {{lugar.latitud}} ,longitud{{lugar.longitud}}
+                </ion-text>
+                <ion-text *ngIf="!lugar.latitud">
                 </ion-text>
             </ion-col>
             <ion-col>
