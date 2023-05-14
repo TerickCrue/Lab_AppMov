@@ -61,6 +61,8 @@ export class FloatMenuComponent implements OnInit, OnDestroy {
          this.datosMenu =[
           {nombre: 'Alumnos',enlace:'/main/alumnos',
             icono:'school-outline'},
+          {nombre: 'Galería',enlace:'/main/galeria',
+            icono:'camera'},
           {nombre: 'Recetas',enlace:'/main/receta',
             icono:'restaurant-outline'},
           {nombre: 'Presupuesto',enlace:'/main/presupuesto',
@@ -75,6 +77,7 @@ export class FloatMenuComponent implements OnInit, OnDestroy {
             icono:'folder-outline'},
           {nombre: 'Logout',enlace:'home',
             icono:'log-out-outline'},
+            
           
          ];
 
