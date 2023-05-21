@@ -74,7 +74,7 @@ Thumbs.db
 .runtimeconfig.json
 
 #custom
-/environments/environment.prod.ts
+/environment.prod.ts
 ios/*
 android/*
 
