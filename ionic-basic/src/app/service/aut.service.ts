@@ -1,28 +1,39 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { initializeApp } from "firebase/app"
+import { environment } from 'src/environments/environment.prod';
+import { initializeApp } from "firebase/app";
+import { Capacitor } from '@capacitor/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, indexedDBLocalPersistence, initializeAuth } from "firebase/auth";
 import { getFirestore, collection, addDoc, getDocs, doc, setDoc, deleteDoc } from 'firebase/firestore';
 import { Lugar } from '../interface/lugar';
 import { getDatabase } from "firebase/database";
 import { User } from '../interface/user';
 
 
-const firebaseApp = initializeApp(environment.firebaseConfig);
-const dbCloudFirestore = getFirestore(firebaseApp);
+//const firebaseApp = initializeApp(environment.firebaseConfig);
+//const dbCloudFirestore = getFirestore(firebaseApp);
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutService {
 
-  db = dbCloudFirestore;
+  db: any;
   public isLoged : any = false;
   auth: Auth;
 
   constructor(){ 
+
+    const firebaseApp = initializeApp(environment.firebaseConfig);
+    if (Capacitor.isNativePlatform()) {
+      initializeAuth(firebaseApp, {
+        persistence: indexedDBLocalPersistence
+      });
+
+      this.db = getFirestore(firebaseApp);
+
+    }    
 
     this.auth = getAuth(firebaseApp);
 

@@ -63,6 +63,7 @@ yarn-error.log
 testem.log
 /typings
 
+
 # System files
 .DS_Store
 Thumbs.db
@@ -71,3 +72,9 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+#custom
+/environments/environment.prod.ts
+ios/*
+android/*
+

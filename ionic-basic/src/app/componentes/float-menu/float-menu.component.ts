@@ -75,6 +75,8 @@ export class FloatMenuComponent implements OnInit, OnDestroy {
             icono:'airplane'},
           {nombre: 'Tabs',enlace:'/main/tabs',
             icono:'folder-outline'},
+          {nombre: 'segment-button',enlace:'/main/segment-button',
+            icono:'bookmarks-outline'},
           {nombre: 'Logout',enlace:'home',
             icono:'log-out-outline'},
             
